@@ -1,0 +1,149 @@
+/* styles.css */
+
+/* Import custom font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --bg-color: #f0f7ff; /* Warna biru cerah */
+    --text-color: #333333;
+    --display-bg: rgba(255, 255, 255, 0.9); /* Putih transparan */
+    --display-text: #007bff; /* Warna biru cerah */
+    --button-bg: linear-gradient(to bottom right, #70aaff, #5c94ff); /* Gradasi warna biru cerah */
+    --button-hover-bg: linear-gradient(to bottom right, #6196ff, #4b81ff); /* Gradasi warna biru lebih gelap saat dihover */
+    --button-active-bg: linear-gradient(to bottom right, #4c8eff, #3869ff); /* Gradasi warna biru lebih gelap saat ditekan */
+    --button-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calculator {
+    background: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    width: 100%;
+    max-width: 360px;
+    transition: transform 0.3s;
+}
+
+.calculator:hover {
+    transform: scale(1.03);
+}
+
+.display {
+    background-color: var(--display-bg);
+    color: var(--display-text);
+    text-align: right;
+    padding: 20px;
+    font-size: 2.5em;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-sizing: border-box;
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+.btn {
+    padding: 20px;
+    border: none;
+    background: var(--button-bg);
+    color: var(--text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px var(--button-shadow);
+    user-select: none;
+}
+
+.btn:hover {
+    background: var(--button-hover-bg);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    background: var(--button-active-bg);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+@media (max-width: 400px) {
+    .display {
+        font-size: 2em;
+    }
+    .btn {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+}
+
+.theme-toggle {
+    margin-bottom: 20px;
+}
+
+.theme-switch {
+    display: none;
+}
+
+.theme-switch-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch-inner {
+    position: absolute;
+    inset: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: background-color 0.3s;
+}
+
+.theme-switch-switch {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-switch:checked + .theme-switch-label .theme-switch-inner {
+    background-color: #66bb6a;
+}
+
+.theme-switch:checked + .theme-switch-label .theme-switch-switch {
+    transform: translateX(26px);
+}
+
+body.night {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --display-bg: #000000;
+    --display-text: #00ffcc;
+    --button-bg: #333333;
+    --button-hover-bg: #444444;
+    --button-active-bg: #555555;
+    --button-shadow: rgba(0, 0, 0, 0.5);
+}
